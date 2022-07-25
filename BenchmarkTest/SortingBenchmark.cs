@@ -20,6 +20,7 @@ namespace BenchmarkTest
         private readonly int[] _largeTestArray = GetArray(1000000);
         private readonly int[] _veryLargeTestArray = GetArray(100000000);
 
+        #region "Values getting"
         [Benchmark]
         public void GetMaxValuesSmallArrayTest()
         {
@@ -42,11 +43,37 @@ namespace BenchmarkTest
         {
             var result = MaxValuesGetter.GetMaxValues(_veryLargeTestArray, getValues);
         }
+        #endregion
+
+        #region "Indexes getting"
+        [Benchmark]
+        public void GetMaxValuesIndexesSmallArrayTest()
+        {
+            var result = MaxValuesGetter.GetMaxValuesIndexes(_smallTestArray, getValues, offset: 1);
+        }
+
+        [Benchmark]
+        public void GetMaxValuesIndexesTest()
+        {
+            var result = MaxValuesGetter.GetMaxValuesIndexes(_testArray, getValues, offset: 1);
+        }
+
+        [Benchmark]
+        public void GetMaxValuesIndexesLargeArrayTest()
+        {
+            var result = MaxValuesGetter.GetMaxValuesIndexes(_largeTestArray, getValues, offset: 1);
+        }
+        [Benchmark]
+        public void GetMaxValuesIndexesVeryLargeArrayTest()
+        {
+            var result = MaxValuesGetter.GetMaxValuesIndexes(_veryLargeTestArray, getValues, offset: 1);
+        }
+        #endregion
 
         private static int[] GetArray(int length)
         {
             int[] array = new int[length];
-            Random rnd = new Random();   
+            Random rnd = new Random();
             for (int i = 0; i < array.Length; i++)
             {
                 array[i] = rnd.Next(minValue, maxValue);
