@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*
+ * author: Anatolii Kogan
+ * e-mail: kogan.1anatoli@gmail.com
+ */
 using BenchmarkDotNet.Running;
 
 namespace BenchmarkTest

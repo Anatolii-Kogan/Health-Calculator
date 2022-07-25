@@ -1,3 +1,7 @@
+/*
+ * author: Anatolii Kogan
+ * e-mail: kogan.1anatoli@gmail.com
+ */
 using NUnit.Framework;
 using Health_Calculator;
 using System.Collections.Generic;
@@ -13,10 +17,9 @@ namespace HealthCalculatorTester
         [Test]
         public void Get_3_MaxValuesFrom_1_to_10()
         {
-            var maxValues = Test.GetMaxValues(_testArray, _getValues);
+            var maxValues = MaxValuesGetter.GetMaxValues(_testArray, _getValues);
+
             List<int> maxValuesList = new List<int>(maxValues);
-
-
             Assert.IsTrue(maxValuesList.Contains(8) && maxValuesList.Contains(9) && maxValuesList.Contains(10));
         }
     }

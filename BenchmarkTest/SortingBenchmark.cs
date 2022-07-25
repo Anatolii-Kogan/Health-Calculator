@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/*
+ * author: Anatolii Kogan
+ * e-mail: kogan.1anatoli@gmail.com
+ */
+using System;
 using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Running;
 using Health_Calculator;
 
 namespace BenchmarkTest
@@ -24,24 +23,24 @@ namespace BenchmarkTest
         [Benchmark]
         public void GetMaxValuesSmallArrayTest()
         {
-            var result = Test.GetMaxValues(_smallTestArray, getValues);
+            var result = MaxValuesGetter.GetMaxValues(_smallTestArray, getValues);
         }
 
         [Benchmark]
         public void GetMaxValuesTest()
         {
-            var result = Test.GetMaxValues(_testArray, getValues);
+            var result = MaxValuesGetter.GetMaxValues(_testArray, getValues);
         }
 
         [Benchmark]
         public void GetMaxValuesLargeArrayTest()
         {
-            var result = Test.GetMaxValues(_largeTestArray, getValues);
+            var result = MaxValuesGetter.GetMaxValues(_largeTestArray, getValues);
         }
         [Benchmark]
         public void GetMaxValuesVeryLargeArrayTest()
         {
-            var result = Test.GetMaxValues(_veryLargeTestArray, getValues);
+            var result = MaxValuesGetter.GetMaxValues(_veryLargeTestArray, getValues);
         }
 
         private static int[] GetArray(int length)

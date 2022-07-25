@@ -15,7 +15,7 @@ namespace Health_Calculator
         {
             Console.WriteLine("Enter players namber:\nLength:");
 
-            var players = new int[GetArrayLengthByUserInput()];
+            var players = new int[Helpers.GetArrayLengthByUserInput()];
 
             #region "Fill array:"
             Random rnd = new Random();
@@ -29,67 +29,17 @@ namespace Health_Calculator
             do
             {
                 Console.WriteLine("Enter top elements namber; It have to be greater then players namber:\nLength:");
-                topPlayersNamber = GetArrayLengthByUserInput();
+                topPlayersNamber = Helpers.GetArrayLengthByUserInput();
             }
             while (topPlayersNamber > players.Length);
 
-            int[] topPlayers = GetMaxValues(players, topPlayersNamber);
+            int[] topPlayers = MaxValuesGetter.GetMaxValues(players, topPlayersNamber);
 
-            DisplayArray(topPlayers);
+            Helpers.DisplayArray(topPlayers);
 
 
             Console.WriteLine("\nPress any button...");
             Console.ReadKey();
-        }
-
-        public static void DisplayArray<T>(T[] players)
-        {
-            Console.WriteLine("\n");
-            Console.Write($"{players[0]}");
-            for (int i = 1; i < players.Length; i++)
-            {
-                Console.Write($", {players[i]}");
-            }
-        }
-
-        public static int GetArrayLengthByUserInput()
-        {
-            int length;
-            while (int.TryParse(Console.ReadLine(), out length) == false || length <= 0)
-            {
-                Console.WriteLine("Invalid input; Try again");
-            }
-
-            return length;
-        }
-
-        public static int[] GetMaxValues(int[] array, int getValues)
-        {
-            int[] maxValues = new int[getValues];
-
-            int minValueIndex = 0;
-            for(int i = 0; i < array.Length; i++)
-            {
-                if(maxValues[minValueIndex] < array[i])
-                {
-                    maxValues[minValueIndex] = array[i];
-                    SetMinValueIndex();
-                }
-            }
-
-            return maxValues;
-
-            void SetMinValueIndex()
-            {
-                minValueIndex = 0;
-                for(int i = 1; i < maxValues.Length; i++)
-                {
-                    if (maxValues[i] < maxValues[minValueIndex])
-                    {
-                        minValueIndex = i;
-                    }
-                }
-            }
-        }
+        }        
     }
 }
