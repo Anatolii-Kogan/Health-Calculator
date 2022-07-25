@@ -1,0 +1,14 @@
+C:\Projects\Health_Calculator\Health_Calculator\bin\Debug\netcoreapp3.1\Health_Calculator.exe
+C:\Projects\Health_Calculator\Health_Calculator\bin\Debug\netcoreapp3.1\Health_Calculator.deps.json
+C:\Projects\Health_Calculator\Health_Calculator\bin\Debug\netcoreapp3.1\Health_Calculator.runtimeconfig.json
+C:\Projects\Health_Calculator\Health_Calculator\bin\Debug\netcoreapp3.1\Health_Calculator.runtimeconfig.dev.json
+C:\Projects\Health_Calculator\Health_Calculator\bin\Debug\netcoreapp3.1\Health_Calculator.dll
+C:\Projects\Health_Calculator\Health_Calculator\bin\Debug\netcoreapp3.1\Health_Calculator.pdb
+C:\Projects\Health_Calculator\Health_Calculator\obj\Debug\netcoreapp3.1\Health_Calculator.csproj.AssemblyReference.cache
+C:\Projects\Health_Calculator\Health_Calculator\obj\Debug\netcoreapp3.1\Health_Calculator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\Health_Calculator\Health_Calculator\obj\Debug\netcoreapp3.1\Health_Calculator.AssemblyInfoInputs.cache
+C:\Projects\Health_Calculator\Health_Calculator\obj\Debug\netcoreapp3.1\Health_Calculator.AssemblyInfo.cs
+C:\Projects\Health_Calculator\Health_Calculator\obj\Debug\netcoreapp3.1\Health_Calculator.csproj.CoreCompileInputs.cache
+C:\Projects\Health_Calculator\Health_Calculator\obj\Debug\netcoreapp3.1\Health_Calculator.dll
+C:\Projects\Health_Calculator\Health_Calculator\obj\Debug\netcoreapp3.1\Health_Calculator.pdb
+C:\Projects\Health_Calculator\Health_Calculator\obj\Debug\netcoreapp3.1\Health_Calculator.genruntimeconfig.cache
