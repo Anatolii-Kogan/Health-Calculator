@@ -8,7 +8,7 @@ using Health_Calculator;
 
 namespace BenchmarkTest
 {
-    [MemoryDiagnoser, RankColumn]
+    [MemoryDiagnoser]
     public class SortingBenchmark
     {
         public const int minValue = 1;
