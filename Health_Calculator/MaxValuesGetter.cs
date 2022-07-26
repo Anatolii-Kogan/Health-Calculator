@@ -17,23 +17,11 @@ namespace Health_Calculator
                 if (maxValues[minValueIndex] < array[i])
                 {
                     maxValues[minValueIndex] = array[i];
-                    SetMinValueIndex();
+                    SetMinValueIndex(maxValues, ref minValueIndex);
                 }
             }
 
             return maxValues;
-
-            void SetMinValueIndex()
-            {
-                minValueIndex = 0;
-                for (int i = 1; i < maxValues.Length; i++)
-                {
-                    if (maxValues[i] < maxValues[minValueIndex])
-                    {
-                        minValueIndex = i;
-                    }
-                }
-            }
         }
 
         /// <param name="offset">you can take, that array's indexes start from 0, into account</param>
@@ -49,22 +37,34 @@ namespace Health_Calculator
                 {
                     maxValues[minValueIndex] = array[i];
                     maxValuesIndexes[minValueIndex] = i + offset;
-                    SetMinValueIndex();
+                    SetMinValueIndex(maxValues, ref minValueIndex);
                 }
             }
 
-            return maxValuesIndexes;
+            return maxValuesIndexes;            
+        }
 
-            void SetMinValueIndex()
+        //O(array.Length / 2)
+        private static void SetMinValueIndex(int[] array, ref int minValueIndex)
+        {
+            int leftIndex = array.Length - 1;
+            int rightIndex = 0;
+
+            int middleIndex = leftIndex + (rightIndex - leftIndex) / 2;
+
+            while (leftIndex >= middleIndex)
             {
-                minValueIndex = 0;
-                for (int i = 1; i < maxValues.Length; i++)
+                if (array[leftIndex] < array[minValueIndex])
                 {
-                    if (maxValues[i] < maxValues[minValueIndex])
-                    {
-                        minValueIndex = i;
-                    }
+                    minValueIndex = leftIndex;
                 }
+                if (array[rightIndex] < array[minValueIndex])
+                {
+                    minValueIndex = rightIndex;
+                }
+
+                leftIndex--;
+                rightIndex++;
             }
         }
     }

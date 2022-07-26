@@ -9,7 +9,7 @@ namespace Health_Calculator
     public class Test
     {
         public const int minValue = 1;
-        public const int maxValue = int.MaxValue;
+        public const int maxValue = 500;
 
         static void Main(string[] args)
         {
@@ -41,7 +41,6 @@ namespace Health_Calculator
 
             Console.Write("\nMax values: ");
             Helpers.DisplayArray(topPlayers);
-
 
             Console.WriteLine("\nPress any button...");
             Console.ReadKey();
