@@ -17,7 +17,7 @@ namespace Health_Calculator
                 if (maxValues[minValueIndex] < array[i])
                 {
                     maxValues[minValueIndex] = array[i];
-                    SetMinValueIndex(maxValues, ref minValueIndex);
+                    SetMinValueIndexO_N_divide_4(maxValues, ref minValueIndex);
                 }
             }
 
@@ -37,15 +37,41 @@ namespace Health_Calculator
                 {
                     maxValues[minValueIndex] = array[i];
                     maxValuesIndexes[minValueIndex] = i + offset;
-                    SetMinValueIndex(maxValues, ref minValueIndex);
+                    SetMinValueIndexO_N_divide_4(maxValues, ref minValueIndex);
                 }
             }
 
             return maxValuesIndexes;            
         }
 
+        //O(array.Length / 4)
+        private static void SetMinValueIndexO_N_divide_4(int[] array, ref int minValueIndex)
+        {
+            int leftIndex = array.Length - 1;
+            int rightIndex = 0;
+
+            int middleIndexLeft = leftIndex + (rightIndex - leftIndex) / 2;
+            int middleIndexRight = middleIndexLeft;
+
+            int minIndexLeft = leftIndex;
+            int minIndexRight = rightIndex;
+
+            while (leftIndex >= middleIndexLeft)
+            {
+                minIndexLeft = array[leftIndex] < array[middleIndexLeft] ? leftIndex : middleIndexLeft;
+                leftIndex--;
+                middleIndexLeft++;
+
+                minIndexRight = array[rightIndex] < array[middleIndexRight] ? rightIndex : middleIndexRight;
+                rightIndex++;
+                middleIndexRight--;
+            }
+
+            minValueIndex = array[minIndexLeft] < array[minIndexRight] ? minIndexLeft : minIndexRight;
+        }
+
         //O(array.Length / 2)
-        private static void SetMinValueIndex(int[] array, ref int minValueIndex)
+        private static void SetMinValueIndexO_N_divide_2(int[] array, ref int minValueIndex)
         {
             int leftIndex = array.Length - 1;
             int rightIndex = 0;
