@@ -9,7 +9,7 @@ namespace Health_Calculator
     public class Test
     {
         public const int minValue = 1;
-        public const int maxValue = 500;
+        public const int maxValue = int.MaxValue;
 
         static void Main(string[] args)
         {
