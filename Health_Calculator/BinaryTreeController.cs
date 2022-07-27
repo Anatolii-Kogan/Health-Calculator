@@ -44,7 +44,14 @@ namespace Health_Calculator
 
             Length++;
 
-            _topElement.Add(value, index);
+            if (Length > 1)
+            {
+                var newElement = _topElement.Add(value, index);
+                if (newElement.value < _minElement.value)
+                {
+                    _minElement = newElement;
+                }
+            }
         }
 
         public void RemoveMinElement()
@@ -53,26 +60,34 @@ namespace Health_Calculator
             {
                 if (_minElement.right == null)
                 {
+                    //дочерних элементов нет; просто забываем этот элемент
                     _minElement = _minElement.parent;
                     _minElement.left = null;
                 }
                 else
                 {
-                    var newMin = _minElement.right;
-                    _minElement.right = null;
+                    _minElement.parent.left = _minElement.right;
+                    _minElement.right.parent = _minElement.parent;
 
-                    var tempParent = _minElement.parent;
-                    tempParent.left = newMin;
-
-                    _minElement = newMin;
-                    //все ссылки на прошлый минимальном элементе убраны
+                    _minElement = _minElement.right;
+                    while (_minElement.left != null)
+                    {
+                        _minElement = _minElement.left;
+                    }
                 }
             }
-            else
+            else //это верхний элемент
             {
                 _topElement = _topElement.right;
+
+                //убираем ссылку верхний элемент
                 _topElement.parent = null;
-                //ссылки на предыдущий верхний элемент убраны
+
+                _minElement = _topElement;
+                while (_minElement.left != null)
+                {
+                    _minElement = _minElement.left;
+                }
             }
 
             Length--;
@@ -127,25 +142,31 @@ namespace Health_Calculator
             this.index = index;
         }
 
-        public void Add(int value, int index)
+        public BinaryTreeElement Add(int value, int index)
         {
-            if (value.CompareTo(this.value) < 0)
+            if (value < this.value)
             {
                 if (this.left == null)
                 {
                     this.left = new BinaryTreeElement(value, this, index);
+                    return this.left;
                 }
-                else if (this.left != null)
-                    this.left.Add(value, index);
+                else
+                {
+                    return this.left.Add(value, index);
+                }
             }
             else
             {
                 if (this.right == null)
                 {
                     this.right = new BinaryTreeElement(value, this, index);
+                    return this.right;
                 }
-                else if (this.right != null)
-                    this.right.Add(value, index);
+                else
+                {
+                    return this.right.Add(value, index);
+                }
             }
         }
 
