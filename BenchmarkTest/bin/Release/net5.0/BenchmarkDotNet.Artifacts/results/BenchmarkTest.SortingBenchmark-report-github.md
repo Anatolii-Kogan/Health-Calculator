@@ -8,9 +8,13 @@ Intel Core i7-10750H CPU 2.60GHz, 1 CPU, 12 logical and 6 physical cores
 
 
 ```
-|                      Method |             Mean |           Error |          StdDev | Rank |  Gen 0 | Allocated |
-|---------------------------- |-----------------:|----------------:|----------------:|-----:|-------:|----------:|
-|  GetMaxValuesSmallArrayTest |         354.9 ns |         3.76 ns |         3.51 ns |    1 | 0.0100 |      64 B |
-|            GetMaxValuesTest |      10,519.9 ns |       114.84 ns |       107.43 ns |    2 |      - |      64 B |
-|  GetMaxValuesLargeArrayTest |     975,360.1 ns |    18,781.07 ns |    22,357.53 ns |    3 |      - |      64 B |
-| GetMaxValuesVLargeArrayTest | 100,025,676.2 ns | 1,879,214.70 ns | 1,845,640.11 ns |    4 |      - |      64 B |
+|                                Method |             Mean |           Error |          StdDev |  Gen 0 | Allocated |
+|-------------------------------------- |-----------------:|----------------:|----------------:|-------:|----------:|
+|            GetMaxValuesSmallArrayTest |         723.7 ns |        14.28 ns |        23.46 ns | 0.2518 |      2 KB |
+|                      GetMaxValuesTest |      25,005.9 ns |        95.22 ns |        84.41 ns | 0.7324 |      5 KB |
+|            GetMaxValuesLargeArrayTest |   2,251,997.7 ns |    17,978.48 ns |    15,937.45 ns |      - |      6 KB |
+|        GetMaxValuesVeryLargeArrayTest | 207,042,902.5 ns | 3,101,093.76 ns | 5,512,191.01 ns |      - |      8 KB |
+|     GetMaxValuesIndexesSmallArrayTest |         711.5 ns |         7.61 ns |         6.36 ns | 0.2670 |      2 KB |
+|               GetMaxValuesIndexesTest |      22,125.8 ns |       326.74 ns |       376.27 ns | 0.5493 |      3 KB |
+|     GetMaxValuesIndexesLargeArrayTest |   2,028,167.8 ns |    39,892.11 ns |    53,254.82 ns |      - |      6 KB |
+| GetMaxValuesIndexesVeryLargeArrayTest | 226,918,185.7 ns | 2,524,760.35 ns | 2,238,134.29 ns |      - |      9 KB |
