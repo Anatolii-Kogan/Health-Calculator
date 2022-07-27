@@ -25,16 +25,6 @@ namespace HealthCalculatorTester
         }
 
         [Test]
-        public void Get_3_MaxValuesIndexesFrom_1_to_10()
-        {
-            var maxValues = MaxValuesGetter.GetMaxValuesIndexes(_testArray, _getValues, offset: 1);
-
-            List<int> maxValuesList = new List<int>(maxValues);
-            //_testArray[8] = 8, _testArray[9] = 9, _testArray[0] = 10,
-            Assert.IsTrue(maxValuesList.Contains(9) && maxValuesList.Contains(10) && maxValuesList.Contains(1));
-        }
-
-        [Test]
         public void Get_3_MaxValuesFrom_8x8_and_0()
         {
             var testArray = new int[] { 8, 8, 8, 8, 8, 8, 8, 8, 8, 0 };

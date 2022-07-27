@@ -34,10 +34,6 @@ namespace Health_Calculator
             while (topPlayersNamber > players.Length);
 
             int[] topPlayers = MaxValuesGetter.GetMaxValues(players, topPlayersNamber);
-            int[] topPlayersIndexes = MaxValuesGetter.GetMaxValuesIndexes(players, topPlayersNamber, offset: 1);
-
-            Console.Write("Positions: ");
-            Helpers.DisplayArray(topPlayersIndexes);
 
             Console.Write("\nMax values: ");
             Helpers.DisplayArray(topPlayers);

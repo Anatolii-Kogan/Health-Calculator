@@ -45,31 +45,6 @@ namespace BenchmarkTest
         }
         #endregion
 
-        #region "Indexes getting"
-        [Benchmark]
-        public void GetMaxValuesIndexesSmallArrayTest()
-        {
-            var result = MaxValuesGetter.GetMaxValuesIndexes(_smallTestArray, getValues, offset: 1);
-        }
-
-        [Benchmark]
-        public void GetMaxValuesIndexesTest()
-        {
-            var result = MaxValuesGetter.GetMaxValuesIndexes(_testArray, getValues, offset: 1);
-        }
-
-        [Benchmark]
-        public void GetMaxValuesIndexesLargeArrayTest()
-        {
-            var result = MaxValuesGetter.GetMaxValuesIndexes(_largeTestArray, getValues, offset: 1);
-        }
-        [Benchmark]
-        public void GetMaxValuesIndexesVeryLargeArrayTest()
-        {
-            var result = MaxValuesGetter.GetMaxValuesIndexes(_veryLargeTestArray, getValues, offset: 1);
-        }
-        #endregion
-
         private static int[] GetArray(int length)
         {
             int[] array = new int[length];
