@@ -70,10 +70,7 @@ namespace Health_Calculator
                     _minElement.right.parent = _minElement.parent;
 
                     _minElement = _minElement.right;
-                    while (_minElement.left != null)
-                    {
-                        _minElement = _minElement.left;
-                    }
+                    SetMinElement();
                 }
             }
             else //это верхний элемент
@@ -84,13 +81,18 @@ namespace Health_Calculator
                 _topElement.parent = null;
 
                 _minElement = _topElement;
+                SetMinElement();
+            }
+
+            Length--;
+
+            void SetMinElement()
+            {
                 while (_minElement.left != null)
                 {
                     _minElement = _minElement.left;
                 }
             }
-
-            Length--;
         }
 
         private List<BinaryTreeElement> ToList()
