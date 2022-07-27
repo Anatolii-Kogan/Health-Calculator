@@ -23,11 +23,11 @@ namespace Health_Calculator
             for (int i = n - 1; i >= 0; i--)
             {
                 // Перемещаем текущий корень в конец
-                int temp = array[0];
+                int maxValue = array[0];
                 array[0] = array[i];
-                array[i] = temp;
+                array[i] = maxValue;
 
-                maxValues[getValues] = temp;
+                maxValues[getValues] = maxValue;
                 if (getValues == 0)
                 {
                     break;
